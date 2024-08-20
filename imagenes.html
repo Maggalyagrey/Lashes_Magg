@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Práctica Lashes</title>
+    <link rel="stylesheet" href="estilos/principal.css">
+    <link rel="stylesheet" href="estilos/menu.css">
+    <link rel="stylesheet" href="estilos/banner.css">
+    <link rel="stylesheet" href="estilos/blog.css">
+    <link rel="stylesheet" href="estilos/info.css">
+    <link rel="stylesheet" href="estilos/footer.css">
+    <link rel="stylesheet" href="estilos/fontello.css">
+    <link rel="stylesheet" href="estilos/imagenes.css">
+    <meta charset="utf-8">
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.8);
+        }
+        .modal__contenido {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            text-align: center;
+        }
+        .modal_img {
+            width: 100%;
+        }
+        .modal_boton {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .modal_boton:hover,
+        .modal_boton:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .modal_info {
+            margin-top: 20px;
+        }
+        .modal_link {
+            display: block;
+            margin-top: 20px;
+        }
+        .modal_link button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="contenedor">
+            <h1 class="icono-corazon">TechStore</h1>
+            <input type="checkbox" id="menu-icn">
+            <label class="icon-menu" for="menu-icn"></label>
+
+            <nav class="menu">
+                <a href="index.html">Inicio</a>
+                <a href="catologo.html">Catálogo</a>
+                <a href="imagenes.html">Imagenes</a>
+                <a href="contacto.html">Contacto</a>
+                <a href="Compra.html">Compra</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="banner">
+            <img src="imagenes/banner.jpeg" width="800">
+            <div class="contenedor">
+                <h2>Magg Lashes</h2>
+                <p>Las extensiones de pestañas son pelos individuales 
+                    colocados sobre las pestañas naturales. Aproximadamente 
+                    se colocan de 80 a 120 extensiones por ojo.</p>
+                <a href="">Leer más</a>
+            </div>
+        </section>
+
+        <div class="modal" id="modal">
+            <div class="modal__contenido">
+                <span class="modal_boton" id="modal_boton">×</span>
+                <img src="" class="modal_img" id="modal_img">
+                <div class="modal_info" id="modal_info"></div>
+                <a href="" class="modal_link" id="modal_link"><button>Comprar</button></a>
+            </div>
+        </div>
+        
+        <div>
+            <h2>Estas son fotos de los distintos estilos de aplicación</h2>
+        </div>
+        
+        <div class="contenedor contenedor-flexible">
+            <div class="column column--50-25">
+                <img src="imagenes/grande1.jpeg" class="galeria__img galeria__img--grande" data-info="Ceja HD, precio: $90" data-link="https://compra1.com">
+                <img src="imagenes/chica1.jpeg" class="galeria__img galeria__img--chica" data-info="Volumen Egipcio, precio: $350" data-link="https://compra2.com">
+            </div>
+            <div class="column column--50-25">
+                <img src="imagenes/chica2.jpeg" class="galeria__img galeria__img--chica" data-info="T. Hibrida, precio: $250" data-link="https://compra3.com">
+                <img src="imagenes/grande2.jpeg" class="galeria__img galeria__img--grande" data-info="T. Hibrida, precio: $250" data-link="https://compra4.com">
+            </div>
+            <div class="column column--50-25">
+                <img src="imagenes/grande3.jpeg" class="galeria__img galeria__img--grande" data-info="Volumen Griego, precio: $350" data-link="https://compra5.com">
+                <img src="imagenes/chica3.jpeg" class="galeria__img galeria__img--chica" data-info="Volumen Griego, precio: $350" data-link="https://compra6.com">
+            </div>
+            <div class="column column--50-25">
+                <img src="imagenes/chica4.jpeg" class="galeria__img galeria__img--chica" data-info="Volumen Egipcio, precio: $350" data-link="https://compra7.com">
+                <img src="imagenes/grande4.jpeg" class="galeria__img galeria__img--grande" data-info="Volumen Egipcio, precio: $350" data-link="https://compra8.com">
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="contenedor">
+            <p class="pie">CopyRight &copy; Magaly Aguilar Reyes</p>
+            <div class="sociales">
+                <a href="https://www.instagram.com/" class="icon-instagram"></a>
+                <a href="https://www.facebook.com/" class="icon-facebook"></a>
+                <a href="https://x.com/" class="icon-twitter"></a>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            const modal = document.getElementById('modal');
+            const modalImg = document.getElementById('modal_img');
+            const modalInfo = document.getElementById('modal_info');
+            const modalLink = document.getElementById('modal_link');
+            const modalBtn = document.getElementById('modal_boton');
+            const galleryImages = document.querySelectorAll('.galeria__img');
+
+            galleryImages.forEach(img => {
+                img.addEventListener('click', function () {
+                    modal.style.display = 'block';
+                    modalImg.src = this.src;
+                    modalInfo.textContent = this.dataset.info;
+                    modalLink.href = this.dataset.link;
+                });
+            });
+
+            modalBtn.addEventListener('click', function () {
+                modal.style.display = 'none';
+            });
+
+            window.addEventListener('click', function (event) {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

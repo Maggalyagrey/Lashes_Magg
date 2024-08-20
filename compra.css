@@ -1,0 +1,204 @@
+/* estilos/principal.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 20px 0;
+    position: relative;
+}
+
+header .contenedor {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 24px;
+    margin: 0;
+}
+
+header input[type="checkbox"] {
+    display: none;
+}
+
+header .icon-menu {
+    display: none;
+    cursor: pointer;
+}
+
+header nav.menu {
+    display: flex;
+    gap: 20px;
+}
+
+header nav.menu a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 3px;
+    transition: background 0.3s ease;
+}
+
+header nav.menu a:hover {
+    background: #555;
+}
+
+@media (max-width: 768px) {
+    header .icon-menu {
+        display: block;
+    }
+    header nav.menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: #333;
+        position: absolute;
+        top: 100%;
+        left: 0;
+    }
+    header input[type="checkbox"]:checked ~ nav.menu {
+        display: flex;
+    }
+}
+
+#banner {
+    position: relative;
+    height: 300px;
+    background: url('../imagenes/banner.jpe') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+}
+
+#banner h2 {
+    font-size: 36px;
+    margin: 0;
+}
+
+#banner p {
+    font-size: 18px;
+}
+
+#banner a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 3px;
+    transition: background 0.3s ease;
+}
+
+#banner a:hover {
+    background: #555;
+}
+
+main {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+form.formulario {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form.formulario fieldset {
+    border: none;
+}
+
+form.formulario legend {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+form.formulario .contenedor-campos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+form.formulario .campo {
+    flex: 1 1 45%;
+}
+
+form.formulario label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form.formulario .input-text {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+form.formulario textarea.input-text {
+    height: 100px;
+}
+
+form.formulario .boton {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #333;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition:backgroud 0.3s ease;
+}
+
+form.formulario .boton:hover {
+    background: #555;
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer .contenedor {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer .pie {
+    margin: 0;
+}
+
+footer .sociales a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 24px;
+}
+
+footer .sociales a:hover {
+    color: #aaa;
+}
